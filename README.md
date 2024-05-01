@@ -1,24 +1,17 @@
 <!-- https://shields.io/ -->
 
-[![license](https://img.shields.io/github/license/peaceiris/docker-mdbook.svg)](https://github.com/peaceiris/docker-mdbook/blob/main/LICENSE)
-[![release](https://img.shields.io/github/release/peaceiris/docker-mdbook.svg)](https://github.com/peaceiris/docker-mdbook/releases/latest)
-[![GitHub release date](https://img.shields.io/github/release-date/peaceiris/docker-mdbook.svg)](https://github.com/peaceiris/docker-mdbook/releases)
+[![license](https://img.shields.io/github/license/hydroxycarbamide/docker-mdbook.svg)](https://github.com/hydroxycarbamide/docker-mdbook/blob/main/LICENSE)
 [![GitHub Actions status](https://github.com/Hydroxycarbamide/docker-mdbook/actions/workflows/ci.yml/badge.svg)](https://github.com/Hydroxycarbamide/docker-mdbook/actions/workflows/ci.yml)
 
 <img width="400" alt="Docker image for mdBook" src="./images/ogp.jpg">
 
 
 
-## Alpine Base Docker Image for mdBook
+# Alpine Base Docker Image for [rust-lang/mdBook] and [catppuccin/mdbook](https://github.com/catppuccin/mdbook)
 
-Alpine base Docker Image for [rust-lang/mdBook].
+Alpine base Docker Image for [rust-lang/mdBook] and [catppuccin/mdbook](https://github.com/catppuccin/mdbook).
 
 [rust-lang/mdBook]: https://github.com/rust-lang/mdBook
-
-Docker images on GitHub Packages [ghcr.io/hydroxycarbamide/mdbook] are available.
-
-[ghcr.io/hydroxycarbamide/mdbook]: https://github.com/users/hydroxycarbamide/packages/container/package/mdbook
-
 
 
 ## Getting started
@@ -38,7 +31,7 @@ version: '3'
 services:
   mdbook:
     container_name: mdbook
-    image: ghcr.io/hydroxycarbamide/mdbook:alpine            # Minimum image
+    image: ghcr.io/hydroxycarbamide/mdbook:alpine    # Minimum image
     # image: hydroxycarbamide/mdbook:rust-alpine     # `mdbook test` subcommand is available
     stdin_open: true
     tty: true
@@ -77,7 +70,7 @@ The mdBook Setup GitHub Action is recommended.
 
 - [MIT License - peaceiris/docker-mdbook]
 
-[MIT License - peaceiris/docker-mdbook]: https://github.com/peaceiris/docker-mdbook/blob/main/LICENSE
+[MIT License - peaceiris/docker-mdbook]: https://github.com/hydroxycarbamide/docker-mdbook/blob/main/LICENSE
 
 
 
