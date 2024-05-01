@@ -47,15 +47,19 @@ jobs:
           MDBOOK_VERSION="$(make get-mdbook-version)"
           MDBOOK_CATPPUCCIN_VERSION="$(make get-mdbook-catppuccin-version)"
           TAG_NAME="v${MDBOOK_VERSION}"
+          UNVERSIONED_TAG_NAME="alpine"
           TAG_NAME_LATEST="latest"
           if [ "${{ startsWith( matrix.baseimage, 'rust:') }}" = "true" ]; then
               export TAG_NAME="${TAG_NAME}-rust"
+              export UNVERSIONED_TAG_NAME="rust-alpine"
           fi
           {
             echo "TAG_NAME=${TAG_NAME}"
+            echo "UNVERSIONED_TAG_NAME=${UNVERSIONED_TAG_NAME}"
             echo "MDBOOK_VERSION=${MDBOOK_VERSION}"
             echo "MDBOOK_CATPPUCCIN_VERSION=${MDBOOK_CATPPUCCIN_VERSION}"
             echo "PKG_TAG=${DOCKER_BASE_NAME}:${TAG_NAME}"
+            echo "PKG_TAG_UNVERSIONED=${DOCKER_BASE_NAME}:${UNVERSIONED_TAG_NAME}"
             echo "PKG_TAG_LATEST=${DOCKER_BASE_NAME}:${TAG_NAME_LATEST}"
           } >> "${GITHUB_ENV}"
 
@@ -77,6 +81,7 @@ jobs:
           DOCKER_SCOPE="action-image-${GITHUB_REF_NAME}"
           docker buildx build . \
               --tag "${PKG_TAG}" \
+              --tag "${PKG_TAG_UNVERSIONED}" \
               --build-arg MDBOOK_VERSION="${MDBOOK_VERSION}" \
               --build-arg MDBOOK_CATPPUCCIN_VERSION="${MDBOOK_CATPPUCCIN_VERSION}" \
               --build-arg BASE_IMAGE="${{ matrix.baseimage }}" \
@@ -97,6 +102,7 @@ jobs:
       - name: docker tag
         run: |
           docker tag "${PKG_TAG}" "${PKG_TAG_LATEST}"
+          docker tag "${PKG_TAG}" "${PKG_TAG_UNVERSIONED}"
 
       - run: docker images
       - run: docker run --rm "${PKG_TAG}" --version
@@ -110,4 +116,5 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         run: |
           docker push "${PKG_TAG}"
+          docker push "${PKG_TAG_UNVERSIONED}"
           docker push "${PKG_TAG_LATEST}"

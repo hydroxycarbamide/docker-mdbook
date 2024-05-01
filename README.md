@@ -15,15 +15,9 @@ Alpine base Docker Image for [rust-lang/mdBook].
 
 [rust-lang/mdBook]: https://github.com/rust-lang/mdBook
 
-- [peaceiris/mdbook - Docker Hub]
+Docker images on GitHub Packages [ghcr.io/hydroxycarbamide/mdbook] are available.
 
-[peaceiris/mdbook - Docker Hub]: https://hub.docker.com/r/peaceiris/mdbook
-
-[![DockerHub Badge](https://dockeri.co/image/peaceiris/mdbook)][peaceiris/mdbook - Docker Hub]
-
-Docker images on GitHub Packages [ghcr.io/peaceiris/mdbook] are also available.
-
-[ghcr.io/peaceiris/mdbook]: https://github.com/users/peaceiris/packages/container/package/mdbook
+[ghcr.io/hydroxycarbamide/mdbook]: https://github.com/users/hydroxycarbamide/packages/container/package/mdbook
 
 
 
@@ -31,10 +25,8 @@ Docker images on GitHub Packages [ghcr.io/peaceiris/mdbook] are also available.
 
 | Image tag | Base Image | Image size | Notes |
 |---|---|---|---|
-| `peaceiris/mdbook:v0.x.x` | `alpine:3.16` | 24MB | Minimum image |
-| `peaceiris/mdbook:v0.x.x-rust` | `rust:1.65-alpine3.16` | 880MB | `mdbook test` subcommand is available |
-| `ghcr.io/peaceiris/mdbook:v0.x.x` | `alpine:3.16` | 24MB | GitHub Packages: Minimum image |
-| `ghcr.io/peaceiris/mdbook:v0.x.x-rust` | `rust:1.65-alpine3.16` | 880MB | GitHub Packages: `mdbook test` subcommand is available |
+| `ghcr.io/hydroxycarbamide/mdbook:alpine` | `alpine:latest` | 24MB | GitHub Packages: Minimum image |
+| `ghcr.io/hydroxycarbamide/mdbook:rust-alpine` | `rust:alpine` | 880MB | GitHub Packages: `mdbook test` subcommand is available |
 
 ### Docker Compose
 
@@ -46,9 +38,8 @@ version: '3'
 services:
   mdbook:
     container_name: mdbook
-    image: peaceiris/mdbook:v0.x.x            # Minimum image
-    # image: peaceiris/mdbook:v0.x.x-rust     # `mdbook test` subcommand is available
-    # image: ghcr.io/peaceiris/mdbook:v0.x.x  # Docker images on GitHub Packages
+    image: ghcr.io/hydroxycarbamide/mdbook:alpine            # Minimum image
+    # image: hydroxycarbamide/mdbook:rust-alpine     # `mdbook test` subcommand is available
     stdin_open: true
     tty: true
     ports:
