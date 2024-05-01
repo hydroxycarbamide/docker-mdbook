@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/github/license/peaceiris/docker-mdbook.svg)](https://github.com/peaceiris/docker-mdbook/blob/main/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/docker-mdbook.svg)](https://github.com/peaceiris/docker-mdbook/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/docker-mdbook.svg)](https://github.com/peaceiris/docker-mdbook/releases)
-[![GitHub Actions status](https://github.com/peaceiris/docker-mdbook/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/peaceiris/docker-mdbook/actions)
+[![GitHub Actions status](https://github.com/Hydroxycarbamide/docker-mdbook/actions/workflows/ci.yml/badge.svg)](https://github.com/Hydroxycarbamide/docker-mdbook/actions/workflows/ci.yml)
 
 <img width="400" alt="Docker image for mdBook" src="./images/ogp.jpg">
 
@@ -25,8 +25,8 @@ Docker images on GitHub Packages [ghcr.io/hydroxycarbamide/mdbook] are available
 
 | Image tag | Base Image | Image size | Notes |
 |---|---|---|---|
-| `ghcr.io/hydroxycarbamide/mdbook:alpine` | `alpine:latest` | 24MB | GitHub Packages: Minimum image |
-| `ghcr.io/hydroxycarbamide/mdbook:rust-alpine` | `rust:alpine` | 880MB | GitHub Packages: `mdbook test` subcommand is available |
+| `ghcr.io/hydroxycarbamide/mdbook:alpine` | `alpine:latest` | 29.3MB | GitHub Packages: Minimum image |
+| `ghcr.io/hydroxycarbamide/mdbook:rust-alpine` | `rust:alpine` | 812MB | GitHub Packages: `mdbook test` subcommand is available |
 
 ### Docker Compose
 
