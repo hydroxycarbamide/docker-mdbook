@@ -94,7 +94,6 @@ jobs:
         run: |
           docker buildx build . \
               --tag "${PKG_TAG}" \
-              --tag "${PKG_TAG_UNVERSIONED}" \
               --build-arg MDBOOK_VERSION="${MDBOOK_VERSION}" \
               --build-arg MDBOOK_CATPPUCCIN_VERSION="${MDBOOK_CATPPUCCIN_VERSION}" \
               --build-arg BASE_IMAGE="${{ matrix.baseimage }}" \
@@ -102,7 +101,8 @@ jobs:
 
       - name: docker tag
         run: |
-          docker tag "${PKG_TAG}" "${PKG_TAG_UNVERSIONED}" "${PKG_TAG_LATEST}"
+          docker tag "${PKG_TAG}" "${PKG_TAG_LATEST}"
+          docker tag "${PKG_TAG}" "${PKG_TAG_UNVERSIONED}"
 
       - run: docker images
       - run: docker run --rm "${PKG_TAG}" --version
