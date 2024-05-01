@@ -5,8 +5,10 @@ FROM rust:alpine AS builder
 RUN apk add --no-cache musl-dev
 ENV ARC="x86_64-unknown-linux-musl"
 RUN rustup target add "${ARC}"
-RUN cargo install mdbook --target "${ARC}"
-RUN cargo install mdbook-catppuccin --target "${ARC}"
+ARG MDBOOK_VERSION
+RUN cargo install mdbook --version "${MDBOOK_VERSION}" --target "${ARC}"
+ARG MDBOOK_CATPPUCCIN_VERSION
+RUN cargo install mdbook-catppuccin --version "${MDBOOK_CATPPUCCIN_VERSION}" --target "${ARC}"
 
 FROM $BASE_IMAGE
 

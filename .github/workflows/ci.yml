@@ -45,6 +45,7 @@ jobs:
       - name: Set env
         run: |
           MDBOOK_VERSION="$(make get-mdbook-version)"
+          MDBOOK_CATPPUCCIN_VERSION="$(make get-mdbook-catppuccin-version)"
           TAG_NAME="v${MDBOOK_VERSION}"
           TAG_NAME_LATEST="latest"
           if [ "${{ startsWith( matrix.baseimage, 'rust:') }}" = "true" ]; then
@@ -53,6 +54,7 @@ jobs:
           {
             echo "TAG_NAME=${TAG_NAME}"
             echo "MDBOOK_VERSION=${MDBOOK_VERSION}"
+            echo "MDBOOK_CATPPUCCIN_VERSION=${MDBOOK_CATPPUCCIN_VERSION}"
             echo "PKG_TAG=${DOCKER_BASE_NAME}:${TAG_NAME}"
             echo "PKG_TAG_LATEST=${DOCKER_BASE_NAME}:${TAG_NAME_LATEST}"
           } >> "${GITHUB_ENV}"
@@ -76,6 +78,7 @@ jobs:
           docker buildx build . \
               --tag "${PKG_TAG}" \
               --build-arg MDBOOK_VERSION="${MDBOOK_VERSION}" \
+              --build-arg MDBOOK_CATPPUCCIN_VERSION="${MDBOOK_CATPPUCCIN_VERSION}" \
               --build-arg BASE_IMAGE="${{ matrix.baseimage }}" \
               --cache-from "type=gha,scope=${DOCKER_SCOPE}" \
               --cache-to "type=gha,mode=max,scope=${DOCKER_SCOPE}" \
@@ -87,6 +90,7 @@ jobs:
           docker buildx build . \
               --tag "${PKG_TAG}" \
               --build-arg MDBOOK_VERSION="${MDBOOK_VERSION}" \
+              --build-arg MDBOOK_CATPPUCCIN_VERSION="${MDBOOK_CATPPUCCIN_VERSION}" \
               --build-arg BASE_IMAGE="${{ matrix.baseimage }}" \
               --output 'type=docker'
 
