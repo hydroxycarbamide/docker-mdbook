@@ -102,7 +102,7 @@ jobs:
 
       - name: docker tag
         run: |
-          docker tag "${PKG_TAG}" "${PKG_TAG_LATEST}"
+          docker tag "${PKG_TAG}" "${PKG_TAG_UNVERSIONED}" "${PKG_TAG_LATEST}"
 
       - run: docker images
       - run: docker run --rm "${PKG_TAG}" --version
@@ -116,4 +116,5 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         run: |
           docker push "${PKG_TAG}"
+          docker push "${PKG_TAG_UNVERSIONED}"
           docker push "${PKG_TAG_LATEST}"
