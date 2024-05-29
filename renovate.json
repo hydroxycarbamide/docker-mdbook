@@ -11,7 +11,7 @@
     },
     {
       "managers": ["cargo"],
-      "rangeStrategy": "widen"
+      "rangeStrategy": "bump"
     }
   ]
 }
