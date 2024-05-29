@@ -8,6 +8,10 @@
       "automerge": true,
       "matchUpdateTypes": ["minor", "patch"],
       "automergeStrategy": "squash"
+    },
+    {
+      "managers": ["cargo"],
+      "rangeStrategy": "widen",
     }
   ]
 }
