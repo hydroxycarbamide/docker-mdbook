@@ -1021,9 +1021,9 @@ dependencies = [
 
 [[package]]
 name = "mdbook-catppuccin"
-version = "2.1.0"
+version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b1434c2005d6370ae54d241730547eab703ee5d73722025083541f6f4bc1609"
+checksum = "23f2a237b8bb80ba8ae9da47e99e98b31bbbafb3cb8aad606173155e9c338674"
 dependencies = [
  "clap",
  "clap_complete",
