@@ -7,9 +7,9 @@
 
 
 
-# Alpine Base Docker Image for [rust-lang/mdBook] and [catppuccin/mdbook](https://github.com/catppuccin/mdbook)
+# Alpine Base Docker Image for [rust-lang/mdBook]
 
-Alpine base Docker Image for [rust-lang/mdBook] and [catppuccin/mdbook](https://github.com/catppuccin/mdbook).
+Alpine base Docker Image for [rust-lang/mdBook].
 
 [rust-lang/mdBook]: https://github.com/rust-lang/mdBook
 
